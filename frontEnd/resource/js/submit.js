@@ -1,4 +1,4 @@
-console.log("submit.js loaded");
+// console.log("submit.js loaded");
 
 // Select the form
 const form = document.querySelector('form[name="form"]');
@@ -49,6 +49,7 @@ form.addEventListener('submit', (e) => {
 
     // Convert data to JSON object
     const review = {};
+    review['timestamp'] = new Date().getTime(); // Ajout de la propriété timestamp
     formData.forEach((value, key) => { review[key] = value });
     const jsonReview = JSON.stringify(review);
 
@@ -63,11 +64,13 @@ form.addEventListener('submit', (e) => {
         .then(response => {
             if (response.ok) {
                 // Show success message
-                console.log("oh yeah jsonReview")
-                console.log(jsonReview)
+                // console.log("jsonReview")
+                // console.log(jsonReview)
                 alert('Votre avis a été publié avec succès !');
                 // Reset the form
                 form.reset();
+                // Reload the page
+                location.reload();
             } else {
                 // Show error message
                 alert('Une erreur est survenue. Veuillez réessayer plus tard.');
@@ -75,7 +78,7 @@ form.addEventListener('submit', (e) => {
         })
         .catch(error => {
             // Show error message
-            console.log(jsonReview)
+            // console.log(jsonReview)
             alert('Une erreur est survenue. Veuillez réessayer plus tard.');
         });
 });
