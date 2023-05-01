@@ -1,7 +1,7 @@
 # avis
-Test Technique
+Technical Test
 
-Developed and tested on Windows 10 and Chrome
+Developed and tested on xampp-windows-x64-8.2.4-0-VS16, Windows 10 and Chrome
 
 To add this PHP project in the latest version of XAMPP, you can follow these steps:
 
@@ -11,8 +11,9 @@ To add this PHP project in the latest version of XAMPP, you can follow these ste
 - Open the XAMPP management interface and start the Apache and MySQL services.
 - Open your web browser and go to the URL “http://localhost/avis/index.html” to view the project.
 
-To add an SQL database in phpMyAdmin, you can follow these steps:
+To add avis.sql database in phpMyAdmin, you can follow these steps:
 
-- Open the XAMPP management interface and click on the “Admin” button next to the MySQL service to open phpMyAdmin in your web browser.
-- Click on the “Databases” tab at the top of the page to display the list of existing databases.
-- Enter the name of the new database in the “Create database” field and click on the “Create” button to create the database.
+- Open phpMyAdmin and select the database you want to import avis.sql file into from the left-hand side.
+- Click on the Import tab at the top of the page.
+- If your .sql file is located at \xampp\htdocs\avis\database, you can navigate to that location when clicking Browse under File to Import in the Import tab of phpMyAdmin. Once you have located the avis.sql file, select it and click Open. Then click Go at the bottom right to import the database file.
+- Click Go at the bottom right to import the database file.
