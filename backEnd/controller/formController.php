@@ -2,19 +2,17 @@
 
 // Include the configuration file
 require_once '../config/config.php';
+require_once '../model/FormModel.php';
 
 /**
  * This class handles the form submission
  */
 class FormController {
-    private $db;
+    private $model;
 
     function __construct() {
-        // Connect to the database
-        global $configuration;
-        $dbConfig = $configuration['database'];
-        $dsn = "mysql:host={$dbConfig['hostname']};port={$dbConfig['port']};dbname={$dbConfig['name']}";
-        $this->db = new PDO($dsn, $dbConfig['username'], $dbConfig['password']);
+        // Instantiate the model
+        $this->model = new FormModel();
     }
 
     /**
@@ -27,13 +25,8 @@ class FormController {
      */
 
     function getAllReviews() {
-        // Retrieve all reviews from the database
-        /**
-         * TODO : refactor this code to use the model
-         */
-        $stmt = $this->db->prepare('SELECT * FROM avis');
-        $stmt->execute();
-        $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // Retrieve all reviews from the database using the model
+        $reviews = $this->model->getAllReviews();
 
         // Send an HTTP 200 response with the reviews
         http_response_code(200);
@@ -51,18 +44,8 @@ class FormController {
             return;
         }
 
-        /**
-         * TODO : refactor this code to use the model
-         */
-        // Save the review in the database
-        $stmt = $this->db->prepare('INSERT INTO avis (email, pseudo, note, commentaire, photo, timestamp) VALUES (:email, :pseudo, :note, :commentaire, :photo, :timestamp)');
-        $stmt->bindParam(':email', $data['email']);
-        $stmt->bindParam(':pseudo', $data['pseudo']);
-        $stmt->bindParam(':note', $data['note']);
-        $stmt->bindParam(':commentaire', $data['commentaire']);
-        $stmt->bindParam(':photo', $data['photo']);
-        $stmt->bindParam(':timestamp', $data['timestamp']);
-        $result = $stmt->execute();
+        // Save the review in the database using the model
+        $result = $this->model->saveReview($data);
         if (!$result) {
             http_response_code(500);
             echo json_encode(['error' => 'Erreur lors de l\'enregistrement de l\'avis.']);
