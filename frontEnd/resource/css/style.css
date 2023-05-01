@@ -1,0 +1,31 @@
+
+
+    /* Sélectionner tous les boutons */
+button {
+    /* Couleur de fond bleue */
+    background-color: #008CBA;
+    /* Couleur de texte blanche */
+    color: white;
+    /* Taille de police de 16px */
+    font-size: 16px;
+    /* Bordure arrondie de 4px */
+    border-radius: 4px;
+    /* Pas de bordure */
+    border: none;
+    /* Padding de 12px */
+    padding: 12px;
+}
+
+/* Sélectionner tous les divs avec la classe avis */
+div.avis {
+    /* Couleur de fond grise */
+    background-color: #e7e7e7;
+    /* Couleur de texte noire */
+    color: black;
+    /* Taille de police de 14px */
+    font-size: 14px;
+    /* Bordure solide de 2px noire */
+    border: 2px solid black;
+    /* Margin de 10px */
+    margin: 10px;
+}
