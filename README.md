@@ -1,5 +1,13 @@
 # avis
 Technical Test
+Subject :
+" Réaliser un formulaire d'avis (de type avis sur fiche produit sur un site e-commerce), ainsi que le listing des avis postés.
+
+Le formulaire doit contenir au minimum les champs suivants :
+email, pseudo, note, commentaire (avec possibilité de mise en forme), upload de photo.
+La liste des avis doit être triable par date ou par note. Elle doit également être filtrable par note.
+Le design est laissé à votre appréciation,
+Au niveau des contraintes techniques, vous utiliserez PHP/Mysql et HTML/CSS/JS."
 
 Developed and tested on xampp-windows-x64-8.2.4-0-VS16, Windows 10 and Chrome
 
